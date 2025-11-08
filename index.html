@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>温州润恒塑料科技有限公司 - 产品追溯二维码生成</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- QRCode 库（CDN加载） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <!-- LZ-String 压缩库（用于超长文本生成链接二维码） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1>温州润恒塑料科技有限公司</h1>
+    <p class="subtitle">产品追溯</p>
+  </header>
+
+  <main class="container">
+    <form id="traceForm" class="form" autocomplete="off">
+      <div class="form-grid">
+        <label class="form-item">
+          <span>订单公司</span>
+          <input type="text" id="company" placeholder="请输入订单公司" />
+        </label>
+
+        <label class="form-item">
+          <span>订单号</span>
+          <input type="text" id="orderNo" placeholder="请输入订单号" />
+        </label>
+
+        <label class="form-item">
+          <span>产品规格</span>
+          <input type="text" id="spec" placeholder="请输入产品规格" />
+        </label>
+
+        <label class="form-item">
+          <span>产品数量</span>
+          <input type="text" id="quantity" placeholder="请输入产品数量" />
+        </label>
+
+        <label class="form-item">
+          <span>原材料入库时间</span>
+          <input type="datetime-local" id="rmInTime" />
+        </label>
+
+        <label class="form-item">
+          <span>原材料批号</span>
+          <input type="text" id="rmBatch" placeholder="请输入原材料批号" />
+        </label>
+
+        <label class="form-item">
+          <span>原材料检验时间</span>
+          <input type="datetime-local" id="rmCheckTime" />
+        </label>
+
+        <label class="form-item">
+          <span>生产时间</span>
+          <input type="datetime-local" id="prodTime" />
+        </label>
+
+        <label class="form-item">
+          <span>生产人员</span>
+          <input type="text" id="prodStaff" placeholder="请输入生产人员" />
+        </label>
+
+        <label class="form-item">
+          <span>成品检验</span>
+          <input type="text" id="fgCheck" placeholder="请输入成品检验信息" />
+        </label>
+
+        <label class="form-item">
+          <span>成品出库</span>
+          <input type="datetime-local" id="fgOut" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="generateBtn" class="btn primary" type="button">生成二维码</button>
+        <button id="clearBtn" class="btn" type="button">清空内容</button>
+      </div>
+    </form>
+
+    <section class="result" id="resultSection">
+      <h2>文本预览</h2>
+      <pre id="textPreview" class="preview"></pre>
+
+      <h2>生成的二维码</h2>
+      <div id="qrcode" class="qrcode"></div>
+      <div class="qr-actions">
+        <button id="copyTextBtn" class="btn" type="button">复制文本内容</button>
+        <a id="downloadLink" class="btn disabled" href="#" download="产品追溯二维码.png">下载二维码图片</a>
+      </div>
+      <p id="modeTip" class="tip">提示：优先生成“纯文本二维码”。若内容过长超过二维码标准容量，将自动切换为“链接二维码”，微信扫码后打开网页显示完整纯文本。</p>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>© 温州润恒塑料科技有限公司</p>
+  </footer>
+</body>
+</html>

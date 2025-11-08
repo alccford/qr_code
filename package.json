@@ -1,0 +1,8 @@
+{
+  "name": "qrcode-trace-web",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "lz-string": "^1.5.0"
+  }
+}
